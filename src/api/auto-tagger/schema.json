@@ -1,0 +1,21 @@
+[
+	{
+		"namespace": "AutoTagger",
+		"functions": [
+			{
+				"name": "start",
+				"type": "function",
+				"async": true,
+				"description": "Starts spreading tags through threads, in the Inbox and the recent Sent messages of Local Folders: a tag added to or removed from a message is added to or removed from its whole thread, and a new message receives the tags of its thread.",
+				"parameters": []
+			},
+			{
+				"name": "runFilters",
+				"type": "function",
+				"async": true,
+				"description": "Runs the Local Folders filters marked \"Manually Run\" on the Inbox and the recent Sent messages of Local Folders. The tags they add are then spread to their threads. Resolves to the number of messages filtered.",
+				"parameters": []
+			}
+		]
+	}
+]
