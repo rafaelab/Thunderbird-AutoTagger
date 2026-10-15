@@ -1,35 +1,35 @@
 {
 	"manifest_version": 2,
-	"name": "Run Local Inbox Filters",
-	"description": "Adds a button and shortcut that run the Local Folders filters on the Inbox and Sent folders of every account, then give every message of a thread all the tags of that thread.",
-	"version": "3.0.0",
-	"applications": {
+	"name": "AutoTagger",
+	"description": "Keeps the tags of a conversation the same on all its messages, in the Inbox and the recent Sent messages of Local Folders. Its button runs the Local Folders filters on those messages.",
+	"version": "3.1.0",
+	"browser_specific_settings": {
 		"gecko": {
-			"id": "run-local-inbox-filters@example.invalid",
-			"strict_min_version": "128.0"
+			"id": "thunderbird-autotagger@example.invalid",
+			"strict_min_version": "153.0"
 		}
 	},
 	"browser_action": {
 		"default_title": "Auto-tag"
 	},
 	"commands": {
-		"run-local-inbox-filters": {
+		"run-filters": {
 			"suggested_key": {
 				"default": "Ctrl+Shift+F"
 			},
-			"description": "Runs the filters on all received and sent mail and tags whole threads."
+			"description": "Runs the Local Folders filters on the Inbox and the recent Sent messages."
 		}
 	},
 	"background": {
 		"scripts": ["background.js"]
 	},
 	"experiment_apis": {
-		"LocalInboxFilters": {
-			"schema": "api/local-inbox-filters/schema.json",
+		"AutoTagger": {
+			"schema": "api/auto-tagger/schema.json",
 			"parent": {
 				"scopes": ["addon_parent"],
-				"paths": [["LocalInboxFilters"]],
-				"script": "api/local-inbox-filters/implementation.js"
+				"paths": [["AutoTagger"]],
+				"script": "api/auto-tagger/implementation.js"
 			}
 		}
 	}

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd src/
-zip -qr -FS ../xpi/run-local-inbox-filters.xpi .
+cd "$(dirname "$0")/src/"
+zip -qr -FS ../xpi/autotagger.xpi . -x '*.DS_Store'

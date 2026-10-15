@@ -7,19 +7,20 @@ async function run() {
 	running = true;
 	messenger.browserAction.disable();
 	try {
-		let tagged = await messenger.LocalInboxFilters.run();
-		console.log(`Auto-tag: ${tagged} message(s) received thread tags.`);
+		let filtered = await messenger.AutoTagger.runFilters();
+		console.log(`AutoTagger: filters run on ${filtered} message(s).`);
 	} catch (e) {
-		console.error("Auto-tag failed:", e);
+		console.error("AutoTagger: filter run failed:", e);
 	} finally {
 		messenger.browserAction.enable();
 		running = false;
 	}
 }
 
+messenger.AutoTagger.start();
 messenger.browserAction.onClicked.addListener(run);
 messenger.commands.onCommand.addListener(command => {
-	if (command === "run-local-inbox-filters") {
+	if (command === "run-filters") {
 		run();
 	}
 });
