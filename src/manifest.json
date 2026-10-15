@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "Run Local Inbox Filters",
+	"description": "Adds a button and shortcut that run the Local Folders filters on the Inbox and Sent folders of every account, then give every message of a thread all the tags of that thread.",
+	"version": "3.0.0",
+	"applications": {
+		"gecko": {
+			"id": "run-local-inbox-filters@example.invalid",
+			"strict_min_version": "128.0"
+		}
+	},
+	"browser_action": {
+		"default_title": "Auto-tag"
+	},
+	"commands": {
+		"run-local-inbox-filters": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+F"
+			},
+			"description": "Runs the filters on all received and sent mail and tags whole threads."
+		}
+	},
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"experiment_apis": {
+		"LocalInboxFilters": {
+			"schema": "api/local-inbox-filters/schema.json",
+			"parent": {
+				"scopes": ["addon_parent"],
+				"paths": [["LocalInboxFilters"]],
+				"script": "api/local-inbox-filters/implementation.js"
+			}
+		}
+	}
+}

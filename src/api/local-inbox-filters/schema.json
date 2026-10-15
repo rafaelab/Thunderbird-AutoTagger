@@ -1,0 +1,14 @@
+[
+	{
+		"namespace": "LocalInboxFilters",
+		"functions": [
+			{
+				"name": "run",
+				"type": "function",
+				"async": true,
+				"description": "Step 1: runs the Local Folders filters marked \"Manually Run\" on the Inbox and Sent folders of every account. Step 2: gives every message of those folders all the tags found in its thread. Resolves to the number of messages that received tags in step 2.",
+				"parameters": []
+			}
+		]
+	}
+]
